@@ -9,6 +9,6 @@ class Controller extends CommonController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
     function Index(){
-        var_dump($this->curl_get("http://www.baidu.com"));
+        var_dump("213");
     }
 }

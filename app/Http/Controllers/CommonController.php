@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
+
 use Illuminate\Routing\Controller as BaseController;
 class CommonController extends BaseController{
     /**
@@ -44,5 +44,23 @@ class CommonController extends BaseController{
         //关闭URL请求
         curl_close($ch);
         return $result;    //返回json对象
+    }
+    function get_userinfo(){
+        return session("userinfo");
+    }
+    function get_nickname(){
+        return session("userinfo")->nickname;
+    }
+    function get_openid(){
+        return session("userinfo")->openid;
+    }
+    function get_sex(){
+        return session("userinfo")->sex;
+    }
+    function get_address(){
+        return session("userinfo")->country.session("userinfo")->province.session("userinfo")->city;
+    }
+    function get_avatar(){
+        return session("userinfo")->headimgurl;
     }
 }
